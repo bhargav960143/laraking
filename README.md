@@ -14,38 +14,52 @@
     <a href="#contributor" alt="PHP version of laraking">
                     <img src="https://img.shields.io/badge/PHP-7.2.6-blue.svg" /></a>
 </p>
-Laraking project aim is to create complete admin panel for beginners developer and help with real-world programming.
+<p> Laraking project aim is to create complete admin panel for beginners developer and help with real-world programming.</p>
 
-Instruction to setup project in windows with wamp
+<p> Instruction to setup project in windows with wamp</p>
 
 1. Go to your wamp64/www/project folder. Run below command
+    ```
     composer global require "laravel/installer"
+    ```
 
 2. Now create new laravel project. Run below command
+    ```
     laravel new
+    ```
 
 3. Prepare your .env file there with a database connection and other settings
+    ```
     Change your database credentials
+    
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laraking
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 
 4. Run laravel in the local server
+    ```
     php artisan serve --port=8080
+    ```
     
 License
 ------------
-All assets and code are under the GPL V2 LICENSE.
+<p>All assets and code are under the GPL V2 LICENSE.</p>
 
-The assets in logo/ are trademarks of their respective companies and are under their terms and license.
+<p>The assets in logo/ are trademarks of their respective companies and are under their terms and license.</p>
 
 Contributing
 ------------
-This project exists thanks to all the people who contribute.
+<p>This project exists thanks to all the people who contribute.</p>
 
 <a href="https://www.linkedin.com/in/bhargavpateldeveloper/" title="Bhargav Patel"><img src="https://media.licdn.com/dms/image/C5603AQGEq8eMvZ4Blw/profile-displayphoto-shrink_200_200/0?e=1535587200&v=beta&t=NdxicniIu56nZ1mK4P_fuHidYCIXWFKB3_AgIpG066k" width="50px" height="50px"></a>
 
 Sponsors
 ------------
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. 
-<br>
+<p>Support this project by becoming a sponsor. Your logo will show up here with a link to your website. </p>
 
 <a href="http://www.trentiums.com/" title="Trentium Solution"><img src="http://www.trentiums.com/images/logo@2x.png" height="100px" width="100px"></a>
 
