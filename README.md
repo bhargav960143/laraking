@@ -10,7 +10,7 @@
     <a href="#license" alt="License of laraking">
             <img src="https://img.shields.io/badge/License-GPL%20V2-green.svg" /></a>
     <a href="#laravel" alt="Laravel version of laraking">
-                <img src="https://img.shields.io/badge/Laravel-5.6-orange.svg" /></a>
+                <img src="https://img.shields.io/badge/Laravel-5.7-orange.svg" /></a>
     <a href="#contributor" alt="PHP version of laraking">
                     <img src="https://img.shields.io/badge/PHP-7.2.6-blue.svg" /></a>
 </p>
@@ -27,7 +27,7 @@ What things you need to install the software and how to install them
 | PHP        |      >=       |   7.2.*   |
 | MYSQL      |      >=       |   5.7.*   |
 | APACHE     |      >=       |   2.4.*   |
-| LARAVEL    |      >=       |   5.6.*   |
+| LARAVEL    |      >=       |   5.7.*   |
 | PHPSTROM   |      >=       |  2018.3.* |
 | PHPMYADMIN |      >=       |   4.7.*   |
 
