@@ -37,17 +37,17 @@ Instruction
 
 <p> Instruction to setup project in windows with wamp</p>
 
-1. Go to your wamp64/www/project folder. Run below command
+1. Go to your wamp64/www/project folder. Run below command.
     ```
     composer global require "laravel/installer"
     ```
 
-2. Now create new laravel project. Run below command
+2. Now create new laravel project. Run below command.
     ```
     laravel new
     ```
 
-3. Prepare your .env file there with a database connection and other settings
+3. Prepare your .env file there with a database connection and other settings.
     ```
     Change your database credentials
     
@@ -58,8 +58,16 @@ Instruction
     DB_USERNAME=root
     DB_PASSWORD=
     ```
+    
+4. After env file update make sure clear config cache.
+    ```
+    php artisan config:clear
+    ```    
+    ```
+    php artisan config:cache
+    ```       
 
-4. Run laravel in the local server
+5. Run laravel in the local server.
     ```
     php artisan serve --port=8080
     ```
