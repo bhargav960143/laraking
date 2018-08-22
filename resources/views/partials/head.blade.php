@@ -8,3 +8,6 @@
 
         <!-- Styles -->
         <link href="{{ url('laraking/css/style.css') }}" rel="stylesheet" type="text/css" />
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{ url('laraking/img/favicon.ico') }}" />
