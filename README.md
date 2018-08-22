@@ -25,11 +25,11 @@ What things you need to install the software and how to install them
 |   Name     |   Condition   |   Version |
 | :-----     |:-------------:|   -----:  |
 | PHP        |      >=       |   7.2.*   |
-| LARAVEL    |      >=       |   5.6.*   |
 | MYSQL      |      >=       |   5.7.*   |
-| PHPMYADMIN |      >=       |   4.7.*   |
 | APACHE     |      >=       |   2.4.*   |
+| LARAVEL    |      >=       |   5.6.*   |
 | PHPSTROM   |      >=       |  2018.3.* |
+| PHPMYADMIN |      >=       |   4.7.*   |
 
 
 Instruction
