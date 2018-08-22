@@ -17,7 +17,8 @@
 
 <p> Laraking project aim is to create complete admin panel for beginners developer and help with real-world programming.</p>
 
-### Requirements
+Requirements
+------------
 
 What things you need to install the software and how to install them
 
@@ -28,7 +29,8 @@ What things you need to install the software and how to install them
 * APACHE        >= 2.4.*
 * PHPSTROM      >= 2018.3.*
 
-### Instruction
+Instruction
+------------
 
 <p> Instruction to setup project in windows with wamp</p>
 
@@ -61,7 +63,7 @@ What things you need to install the software and how to install them
     
 License
 ------------
-<p>All assets and code are under the GPL V2 LICENSE.</p>
+<p>All assets and code are under the MIT LICENSE.</p>
 
 <p>The assets in logo/ are trademarks of their respective companies and are under their terms and license.</p>
 
@@ -75,5 +77,5 @@ Sponsors
 ------------
 <p>Support this project by becoming a sponsor. Your logo will show up here with a link to your website. </p>
 
-<a href="http://www.trentiums.com/" title="Trentium Solution"><img src="http://www.trentiums.com/images/logo@2x.png" height="100px" width="100px"></a>
+<a href="http://www.trentiums.com/" title="Trentium Solution"><img src="http://www.trentiums.com/images/logo@2x.png" height="100px" width="120px"></a>
 
