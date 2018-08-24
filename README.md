@@ -74,7 +74,7 @@ Instruction
     
 License
 ------------
-<p>All assets and code are under the MIT LICENSE.</p>
+<p>All assets and code are under the GPL V3.</p>
 
 <p>The assets in logo/ are trademarks of their respective companies and are under their terms and license.</p>
 
