@@ -1,4 +1,4 @@
-# Laraking  
+# <p align="center"><img src="http://www.trentiums.com/images/laraking/logo.png"></p>
 <p align="center">
     <a href="#backers" alt="Backers of laraking">
         <img src="https://img.shields.io/badge/Sponsors-1-green.svg" /></a>
