@@ -72,6 +72,10 @@ Instruction
     php artisan serve --port=8080
     ```
     
+Package Installed
+------------
+- <p><a href="https://github.com/barryvdh/laravel-debugbar" title="Laravel Debugbar">Laravel Debugbar</a></p>
+
 License
 ------------
 <p>All assets and code are under the GPL V3.</p>
