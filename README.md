@@ -75,6 +75,7 @@ Instruction
 Package Installed
 ------------
 - <p><a href="https://github.com/barryvdh/laravel-debugbar" title="Laravel Debugbar">Laravel Debugbar</a></p>
+- <p><a href="https://github.com/laravel/tinker" title="Laravel Tinker">Laravel Tinker</a></p>
 
 License
 ------------
