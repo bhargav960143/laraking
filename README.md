@@ -71,11 +71,17 @@ Instruction
     ```
     php artisan serve --port=8080
     ```
+
+6. Migrate Laravel existing tables
+    ```
+    php artisan migrate
+    ```
+    
     
 Package Installed
 ------------
 - <p><a href="https://github.com/barryvdh/laravel-debugbar" title="Laravel Debugbar">Laravel Debugbar</a></p>
-- <p><a href="https://github.com/laravel/tinker" title="Laravel Tinker">Laravel Tinker</a></p>
+- <p><a href="https://github.com/spatie/laravel-permission" title="Laravel Tinker">Laravel Permission</a></p>
 
 License
 ------------
