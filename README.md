@@ -93,7 +93,7 @@ Contributing
 ------------
 <p>This project exists thanks to all the people who contribute.</p>
 
-<p><a href="https://www.linkedin.com/in/bhargavpateldeveloper/" title="Bhargav Patel"><img src="https://media.licdn.com/dms/image/C5603AQGEq8eMvZ4Blw/profile-displayphoto-shrink_200_200/0?e=1535587200&v=beta&t=NdxicniIu56nZ1mK4P_fuHidYCIXWFKB3_AgIpG066k" width="50px" height="50px"></a>&nbsp;<a href="#" title="Tejas Darji"><img src="http://www.trentiums.com/images/laraking/tejas.png" width="50px" height="50px"></a></p>
+<p><a href="https://www.linkedin.com/in/bhargavpateldeveloper/" title="Bhargav Patel"><img src="https://media.licdn.com/dms/image/C5603AQGEq8eMvZ4Blw/profile-displayphoto-shrink_200_200/0?e=1542844800&v=beta&t=ffK3KX1wM49Ro5tTZwVSjLfpQYIv9daTaB5asYbeHDI" width="50px" height="50px"></a>&nbsp;<a href="#" title="Tejas Darji"><img src="http://www.trentiums.com/images/laraking/tejas.png" width="50px" height="50px"></a></p>
 
 Sponsors
 ------------
