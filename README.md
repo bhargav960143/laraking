@@ -82,6 +82,8 @@ Package Installed
 ------------
 - <p><a href="https://github.com/barryvdh/laravel-debugbar" title="Laravel Debugbar">Laravel Debugbar</a></p>
 - <p><a href="https://github.com/spatie/laravel-permission" title="Laravel Tinker">Laravel Permission</a></p>
+- <p><a href="https://github.com/antonioribeiro/tracker" title="Laravel Stats Tracker">Laravel Stats Tracker</a></p>
+- <p><a href="https://github.com/maxmind/GeoIP2-php" title="GeoIP2 PHP API">GeoIP2 PHP API</a></p>
 
 License
 ------------
