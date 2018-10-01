@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        @include('partials.head')
+        @include('partials.frontend.head')
     </head>
     <body>
         @yield('content')
