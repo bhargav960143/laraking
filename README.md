@@ -77,6 +77,14 @@ Instruction
     php artisan migrate
     ```
     
+Screenshots
+------------
+```
+Laraking Backend Login Screen
+
+http://127.0.0.1:8080/securepanel/login
+```
+<p align="center"><img src="http://www.trentiums.com/images/laraking/laraking_backend.png"></p>
     
 Package Installed
 ------------
