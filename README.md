@@ -85,6 +85,13 @@ Laraking Backend Login Screen
 http://127.0.0.1:8080/securepanel/login
 ```
 <p align="center"><img src="http://www.trentiums.com/images/laraking/laraking_backend.png"></p>
+
+```
+Laraking Backend Login Error
+
+http://127.0.0.1:8080/securepanel/login
+```
+<p align="center"><img src="http://www.trentiums.com/images/laraking/laraking_backend_error.png"></p>
     
 Package Installed
 ------------

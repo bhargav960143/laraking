@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => config('label.secure_panel_login_error_message'),
+    'throttle' => config('label.secure_panel_login_block_message'),
 
 ];

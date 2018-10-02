@@ -18,9 +18,9 @@ Route::get('/', function () {
 //$this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
 
 Route::get('/securepanel', function () { return redirect('/securepanel/login'); });
-$this->get('securepanel/login', 'Auth\LoginController@showLoginForm')->name('securepanel.auth.login');
-$this->post('securepanel/login', 'Auth\LoginController@login')->name('securepanel.auth.login');
-$this->post('securepanel/logout', 'Auth\LoginController@logout')->name('securepanel.auth.logout');
+$this->get('securepanel/login', 'Backend\LoginController@showLoginForm')->name('securepanel.auth.login');
+$this->post('securepanel/login', 'Backend\LoginController@login')->name('securepanel.auth.login');
+$this->post('securepanel/logout', 'Backend\LoginController@logout')->name('securepanel.auth.logout');
 
 Auth::routes();
 

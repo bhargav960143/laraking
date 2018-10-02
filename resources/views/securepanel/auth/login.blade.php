@@ -20,7 +20,7 @@
                         @if (count($errors) > 0)
                             <br>
                             <div class="alert alert-danger">
-                                <strong>Oops!</strong> There were problems with the entry:
+                                <strong>{{ config('label.secure_panel_login_error_message_one') }}</strong> {{ config('label.secure_panel_login_error_message_two') }}
                                 <br><br>
                                 <ul>
                                     @foreach ($errors->all() as $error)
@@ -39,14 +39,14 @@
                             </div>
                             <div class="row m-login__form-sub">
                                 <div class="col m--align-right m-login__form-right">
-                                    <a href="javascript:;" id="m_login_forget_password" class="m-link">
-                                        Forget Password ?
+                                    <a href="{{ url('password/reset')}}" id="m_login_forget_password" class="m-link">
+                                        {{ config('label.secure_panel_forgot_password_title') }}
                                     </a>
                                 </div>
                             </div>
                             <div class="m-login__form-action">
                                 <button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">
-                                    Sign In
+                                    {{ config('label.secure_panel_login_button_title') }}
                                 </button>
                             </div>
                         </form>
