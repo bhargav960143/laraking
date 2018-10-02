@@ -29,12 +29,13 @@
                                 </ul>
                             </div>
                         @endif
-                        <form class="m-login__form m-form">
+                        <form class="m-login__form m-form" method="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off">
+                                <input class="form-control m-input" type="email" placeholder="Email" name="email" autocomplete="off">
                             </div>
                             <div class="form-group m-form__group">
-                                <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password">
+                                <input class="form-control m-input m-login__form-input--last" minlength="5" maxlength="15" type="password" placeholder="Password" name="password">
                             </div>
                             <div class="row m-login__form-sub">
                                 <div class="col m--align-right m-login__form-right">
