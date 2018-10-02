@@ -74,9 +74,9 @@ Instruction
     php artisan serve --port=8080
     ```
 
-6. Migrate Laravel existing tables
+6. Migrate Laravel existing tables and data
     ```
-    php artisan migrate
+    php artisan migrate --seed
     ```
     
 Screenshots
