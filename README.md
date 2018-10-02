@@ -1,4 +1,4 @@
-# 
+# Laraking
 <p align="center"><img src="http://www.trentiums.com/images/laraking/logo.png"></p>
 
 <p align="center">
