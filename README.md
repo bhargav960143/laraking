@@ -69,15 +69,16 @@ Instruction
     php artisan config:cache
     ```       
 
-5. Run laravel in the local server.
+5. Migrate laravel existing tables and data
+    ```
+    php artisan migrate --seed
+    ```
+
+6. Run laravel in the local server.
     ```
     php artisan serve --port=8080
     ```
 
-6. Migrate Laravel existing tables and data
-    ```
-    php artisan migrate --seed
-    ```
     
 Screenshots
 ------------
