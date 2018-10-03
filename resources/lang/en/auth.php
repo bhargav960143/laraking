@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => config('label.secure_panel_login_error_message'),
-    'throttle' => config('label.secure_panel_login_block_message'),
+    'failed' => trans('label.secure_panel_login_error_message'),
+    'throttle' => trans('label.secure_panel_login_block_message'),
 
 ];

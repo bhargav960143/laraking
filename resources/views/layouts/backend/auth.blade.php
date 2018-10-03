@@ -4,9 +4,9 @@
     <head>
         <meta charset="utf-8" />
         <title>
-            {{ config('label.backend_login_title') }}
+            {{ trans('label.backend_login_title') }}
         </title>
-        <meta name="description" content="{{ config('label.backend_login_title') }}">
+        <meta name="description" content="{{ trans('label.backend_login_title') }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

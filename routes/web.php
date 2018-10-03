@@ -11,17 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+ * Frontend
+ */
+Route::get('/', function () { return view('welcome'); });
 
-//$this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
+/*
+ * Backend
+ */
 
+// Authentication Routes...
 Route::get('/securepanel', function () { return redirect('/securepanel/login'); });
 $this->get('securepanel/login', 'Backend\LoginController@showLoginForm')->name('securepanel.auth.login');
 $this->post('securepanel/login', 'Backend\LoginController@login')->name('securepanel.auth.login');
 $this->post('securepanel/logout', 'Backend\LoginController@logout')->name('securepanel.auth.logout');
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Change Password Routes...
+$this->get('securepanel/change_password', 'Backend\ChangePasswordController@showChangePasswordForm')->name('securepanel.auth.change_password');
+$this->patch('securepanel/change_password', 'Backend\ChangePasswordController@changePassword')->name('securepanel.auth.change_password');
+
+// Password Reset Routes...
+$this->get('securepanel/password/reset', 'Backend\ForgotPasswordController@showLinkRequestForm')->name('securepanel.auth.password.email');
+$this->post('securepanel/password/email', 'Backend\ForgotPasswordController@sendResetLinkEmail')->name('securepanel.auth.password.reset');
+$this->get('securepanel/password/reset/{token}', 'Backend\ResetPasswordController@showResetForm')->name('securepanel.password.reset');
+$this->post('securepanel/password/reset', 'Backend\ResetPasswordController@reset')->name('securepanel.auth.password.reset');
+
