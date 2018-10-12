@@ -40,20 +40,6 @@ class MailResetPasswordNotification extends Notification
     }
 
     /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
-    public function toMail($notifiable)
-    {
-        return (new MailMessage)
-            ->from(config('settings.admin_from_email'),config('app.name'))
-            ->subject(trans('label.reset_password_subject'))
-            ->markdown('securepanel.emails.reset_password', ['reset_token' => $this->token]);
-    }
-
-    /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
@@ -64,5 +50,19 @@ class MailResetPasswordNotification extends Notification
         return [
             //
         ];
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
+    public function toMail($notifiable)
+    {
+        return (new MailMessage)
+            ->from(config('settings.admin_from_email'),config('app.name'))
+            ->subject(trans('label.reset_password_subject'))
+            ->markdown('securepanel.emails.reset_password', ['reset_token' => $this->token, 'name' => $notifiable->first_name]);
     }
 }

@@ -34,6 +34,6 @@ $this->patch('securepanel/change_password', 'Backend\ChangePasswordController@ch
 // Password Reset Routes...
 $this->get('securepanel/password/reset', 'Backend\ForgotPasswordController@showLinkRequestForm')->name('securepanel.auth.password.email');
 $this->post('securepanel/password/email', 'Backend\ForgotPasswordController@sendResetLinkEmail')->name('securepanel.auth.password.reset');
-$this->get('securepanel/password/reset/{token}', 'Backend\ResetPasswordController@showResetForm')->name('securepanel.password.reset');
+$this->get('securepanel/password/reset/{token}', 'Backend\ResetPasswordController@showResetForm')->name('securepanel.auth.password.reset');
 $this->post('securepanel/password/reset', 'Backend\ResetPasswordController@reset')->name('securepanel.auth.password.reset');
 

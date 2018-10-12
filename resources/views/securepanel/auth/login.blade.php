@@ -29,13 +29,29 @@
                                 </ul>
                             </div>
                         @endif
+                        @if (session('status'))
+                            <br><br>
+                            <div class="alert alert-success">
+                                <ul>
+                                    <li><?php echo e(session('status')); ?></li>
+                                </ul>
+                            </div>
+                        @endif
+                        @if (session('status_error'))
+                            <br><br>
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li><?php echo e(session('status_error')); ?></li>
+                                </ul>
+                            </div>
+                        @endif
                         <form class="m-login__form m-form" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group m-form__group">
                                 <input class="form-control m-input" type="email" placeholder="Email" name="email" autocomplete="off">
                             </div>
                             <div class="form-group m-form__group">
-                                <input class="form-control m-input m-login__form-input--last" minlength="5" maxlength="15" type="password" placeholder="Password" name="password">
+                                <input class="form-control m-input m-login__form-input--last" minlength="6" maxlength="15" type="password" placeholder="Password" name="password">
                             </div>
                             <div class="row m-login__form-sub">
                                 <div class="col m--align-right m-login__form-right">

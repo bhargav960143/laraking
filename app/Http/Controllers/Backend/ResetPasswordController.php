@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use App\Backend\Password_Resets;
+use Hash;
 
 class ResetPasswordController extends Controller
 {
@@ -40,7 +42,7 @@ class ResetPasswordController extends Controller
 
     public function showResetForm(Request $request, $token = null)
     {
-        return view('securepanel.auth.passwords.email')->with(
+        return view('securepanel.auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

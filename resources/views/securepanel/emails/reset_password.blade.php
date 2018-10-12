@@ -78,121 +78,43 @@
                             <div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
                             <table width="96%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td align="left"><!--
-
-				Item -->
-                                        <div class="mob_center_bl"
-                                             style="float: left; display: inline-block; width: 115px;">
-                                            <table class="mob_center" width="115" border="0" cellspacing="0"
-                                                   cellpadding="0" align="left" style="border-collapse: collapse;">
-                                                <tr>
-                                                    <td align="left" valign="middle">
-                                                        <!-- padding -->
-                                                        <div style="height: 20px; line-height: 20px; font-size: 10px;">
-                                                            &nbsp;
-                                                        </div>
-                                                        <table width="115" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                                <td align="left" valign="top" class="mob_center">
-                                                                    <a href="#" target="_blank"
-                                                                       style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                                                        <font
-                                                                            face="Arial, Helvetica, sans-seri; font-size: 13px;"
-                                                                            size="3" color="#596167">
-                                                                            <img
-                                                                                src="{{url('laraking/img/logo.png')}}"
-                                                                                width="115" height="19" alt="Metronic"
-                                                                                border="0"
-                                                                                style="display: block;"/></font></a>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div><!-- Item END--><!--[if gte mso 10]>
-                                        </td>
-                                        <td align="right">
-                                        <![endif]--><!--
-
-				Item -->
-                                        <div class="mob_center_bl"
-                                             style="float: right; display: inline-block; width: 88px;">
-                                            <table width="88" border="0" cellspacing="0" cellpadding="0" align="right"
-                                                   style="border-collapse: collapse;">
-                                                <tr>
-                                                    <td align="right" valign="middle">
-                                                        <!-- padding -->
-                                                        <div style="height: 20px; line-height: 20px; font-size: 10px;">
-                                                            &nbsp;
-                                                        </div>
-                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                                <td align="right">
-                                                                    <!--social -->
-                                                                    <div class="mob_center_bl" style="width: 88px;">
-                                                                        <table border="0" cellspacing="0"
-                                                                               cellpadding="0">
-                                                                            <tr>
-                                                                                <td width="30" align="center"
-                                                                                    style="line-height: 19px;">
-                                                                                    <a href="#" target="_blank"
-                                                                                       style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-                                                                                        <font
-                                                                                            face="Arial, Helvetica, sans-serif"
-                                                                                            size="2" color="#596167">
-                                                                                            <img
-                                                                                                src="{{url('laraking/backend/img/facebook.gif')}}"
-                                                                                                width="10" height="19"
-                                                                                                alt="Facebook"
-                                                                                                border="0"
-                                                                                                style="display: block;"/></font></a>
-                                                                                </td>
-                                                                                <td width="39" align="center"
-                                                                                    style="line-height: 19px;">
-                                                                                    <a href="#" target="_blank"
-                                                                                       style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-                                                                                        <font
-                                                                                            face="Arial, Helvetica, sans-serif"
-                                                                                            size="2" color="#596167">
-                                                                                            <img
-                                                                                                src="{{url('laraking/backend/img/twitter.gif')}}"
-                                                                                                width="19" height="16"
-                                                                                                alt="Twitter" border="0"
-                                                                                                style="display: block;"/></font></a>
-                                                                                </td>
-                                                                                <td width="29" align="right"
-                                                                                    style="line-height: 19px;">
-                                                                                    <a href="#" target="_blank"
-                                                                                       style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-                                                                                        <font
-                                                                                            face="Arial, Helvetica, sans-serif"
-                                                                                            size="2" color="#596167">
-                                                                                            <img
-                                                                                                src="{{url('laraking/backend/img/dribbble.gif')}}"
-                                                                                                width="19" height="19"
-                                                                                                alt="Dribbble"
-                                                                                                border="0"
-                                                                                                style="display: block;"/></font></a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </div>
-                                                                    <!--social END-->
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div><!-- Item END--></td>
+                                    <td align="left">
+                                        &nbsp;
+                                    </td>
                                 </tr>
                             </table>
                             <!-- padding -->
-                            <div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
                         </td>
                     </tr>
                     <!--header END-->
+
+                    <tr>
+                        <td align="center" bgcolor="#ffffff">
+                            <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td align="center">
+                                        <!-- padding -->
+                                        <div style="height: 25px; line-height: 25px; font-size: 10px;">&nbsp;</div>
+                                        <div>
+                                            <a href="{{url('securepanel')}}" target="_blank"
+                                               style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                <font
+                                                    face="Arial, Helvetica, sans-seri; font-size: 13px;"
+                                                    size="3" color="#596167">
+                                                    <img
+                                                        src="{{url('laraking/img/logo.png')}}"
+                                                        width="100" height="100"
+                                                        alt="{{config('app.name')}}"
+                                                        border="0"
+                                                        style="display: block;"/></font></a>
+                                        </div>
+                                        <!-- padding -->
+                                        <div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
 
                     <!--content 1 -->
                     <tr>
@@ -201,12 +123,11 @@
                                 <tr>
                                     <td align="center">
                                         <!-- padding -->
-                                        <div style="height: 100px; line-height: 100px; font-size: 10px;">&nbsp;</div>
                                         <div style="line-height: 44px;">
                                             <font face="Arial, Helvetica, sans-serif" size="5" color="#57697e"
                                                   style="font-size: 34px;">
 					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 34px; color: #57697e;">
-						Welcome to the Metronic
+						{{trans('label.reset_password_title')}}
 					</span></font>
                                         </div>
                                         <!-- padding -->
@@ -219,7 +140,7 @@
                                             <font face="Arial, Helvetica, sans-serif" size="5" color="#4db3a4"
                                                   style="font-size: 17px;">
 					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 17px; color: #4db3a4;">
-						Hi Dylan, your registration is completed!
+						{{trans('label.reset_password_title_hi')}} {{$name}}, your forgot password request recieved.
 					</span></font>
                                         </div>
                                         <!-- padding -->
@@ -236,7 +157,7 @@
                                                               color="#57697e" style="font-size: 16px;">
 									<span
                                         style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
-										Lorem ipsum dolor sit amet consectetuer adipiscing elit, sed diam nonumy nibh elit esmod tincidunt ut laoreet dolore magna aliquam volutpat wisi enim ad minim veniam quis dolore.
+                                        {{trans('label.reset_password_sub_one')}}
 									</span></font>
                                                     </div>
                                                 </td>
@@ -249,16 +170,55 @@
                                 <tr>
                                     <td align="center">
                                         <div style="line-height:24px;">
-                                            <a href="#" target="_blank"
+                                            <a href="{{url('securepanel/password/reset/' . $reset_token)}}" target="_blank"
                                                style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
                                                 <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3"
                                                       color="#596167">
-                                                    <img src="{{url('laraking/backend/img/confirm-reg.gif')}}"
-                                                         width="225" height="43" alt="CONFIRM REGISTRATION" border="0"
+                                                    <img src="{{url('laraking/backend/img/reset-password.gif')}}"
+                                                         width="225" height="43" alt="Reset Password" border="0"
                                                          style="display: block;"/></font></a>
                                         </div>
+                                        <div style="height: 45px; line-height: 45px; font-size: 10px;">&nbsp;</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <table width="80%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td align="center">
+                                                    <div style="line-height: 24px;">
+                                                        <font face="Arial, Helvetica, sans-serif" size="4"
+                                                              color="#57697e" style="font-size: 16px;">
+									<span
+                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #57697e;">
+                                        {{trans('label.reset_password_sub_two')}}&nbsp;{{url('securepanel/password/reset/' . $reset_token)}}
+									</span></font>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
                                         <!-- padding -->
-                                        <div style="height: 100px; line-height: 100px; font-size: 10px;">&nbsp;</div>
+                                        <div style="height: 45px; line-height: 45px; font-size: 10px;">&nbsp;</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <table width="80%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td align="center">
+                                                    <div style="line-height: 24px;">
+                                                        <font face="Arial, Helvetica, sans-serif" size="4"
+                                                              color="#57697e" style="font-size: 16px;">
+									<span
+                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+                                        {{trans('label.reset_password_sub_three')}}
+									</span></font>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- padding -->
+                                        <div style="height: 45px; line-height: 45px; font-size: 10px;">&nbsp;</div>
                                     </td>
                                 </tr>
                             </table>
@@ -282,15 +242,67 @@
                                                           color="#282f37" style="font-size: 12px;">
 								<span
                                     style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #5b9bd1;">
-		              <a href="#" target="_blank" style="color: #5b9bd1; text-decoration: none;">GENERAL QUESTIONS</a>
+		              <a href="{{trans('label.email_general_question_url')}}" target="_blank" style="color: #5b9bd1; text-decoration: none;">{{trans('label.email_general_question')}}</a>
 		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="{{url('laraking/backend/img/dot.gif')}}" alt="|"
                                                    width="6" height="9" class="mob_display_none"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
-		              <a href="#" target="_blank"
-                         style="color: #5b9bd1; text-decoration: none;">TERMS &amp; CONDITIONS</a>
+		              <a href="{{trans('label.email_terms_condition_url')}}" target="_blank"
+                         style="color: #5b9bd1; text-decoration: none;">{{trans('label.email_terms_condition')}}</a>
 		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="{{url('laraking/backend/img/dot.gif')}}" alt="|"
                                                    width="6" height="9" class="mob_display_none"/>&nbsp;&nbsp;&nbsp;&nbsp;
-		              <a href="#" target="_blank" style="color: #5b9bd1; text-decoration: none;">UNSUBSCRIBE EMAIL</a>
+		              <a href="{{trans('label.email_need_help_url')}}" target="_blank" style="color: #5b9bd1; text-decoration: none;">{{trans('label.email_need_help')}}</a>
               </span></font>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
+                                        <table border="0" cellspacing="0"
+                                               cellpadding="0">
+                                            <tr>
+                                                <td width="30" align="center"
+                                                    style="line-height: 19px;">
+                                                    <a href="{{trans('label.facebook_url')}}" target="_blank"
+                                                       style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+                                                        <font
+                                                            face="Arial, Helvetica, sans-serif"
+                                                            size="2" color="#596167">
+                                                            <img
+                                                                src="{{url('laraking/backend/img/facebook.png')}}"
+                                                                width="10" height="19"
+                                                                alt="{{ trans('label.email_facebook_title') }}"
+                                                                border="0"
+                                                                style="display: block;"/></font></a>
+                                                </td>
+                                                <td width="39" align="center"
+                                                    style="line-height: 19px;">
+                                                    <a href="{{trans('label.twitter_url')}}" target="_blank"
+                                                       style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+                                                        <font
+                                                            face="Arial, Helvetica, sans-serif"
+                                                            size="2" color="#596167">
+                                                            <img
+                                                                src="{{url('laraking/backend/img/twitter.png')}}"
+                                                                width="19" height="16"
+                                                                alt="{{ trans('label.email_twitter_title') }}"
+                                                                border="0"
+                                                                style="display: block;"/></font></a>
+                                                </td>
+                                                <td width="29" align="right"
+                                                    style="line-height: 19px;">
+                                                    <a href="{{trans('label.dribbble_url')}}" target="_blank"
+                                                       style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+                                                        <font
+                                                            face="Arial, Helvetica, sans-serif"
+                                                            size="2" color="#596167">
+                                                            <img
+                                                                src="{{url('laraking/backend/img/dribbble.png')}}"
+                                                                width="19" height="19"
+                                                                alt="{{ trans('label.email_dribbble_title') }}"
+                                                                border="0"
+                                                                style="display: block;"/></font></a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -318,7 +330,7 @@
                                         <font face="Arial, Helvetica, sans-serif" size="3" color="#96a5b5"
                                               style="font-size: 13px;">
 				<span style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #96a5b5;">
-					2015 &copy; Metronic. ALL Rights Reserved.
+					{{trans('label.email_copy_rights_text')}}
 				</span></font>
                                     </td>
                                 </tr>
