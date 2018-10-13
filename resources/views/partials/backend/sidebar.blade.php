@@ -18,6 +18,16 @@
                     </span>
                 </a>
             </li>
+            <li class="m-menu__item  m-menu__item--{{ $request->segment(2) == 'roles' ? 'active' : '' }}"
+                aria-haspopup="true">
+                <a href="{{ url('securepanel/roles') }}" title="{{trans('label.roles_title')}}" class="m-menu__link ">
+                    <span class="m-menu__item-here"></span>
+                    <i class="m-menu__link-icon flaticon-user-ok"></i>
+                    <span class="m-menu__link-text">
+                        {{trans('label.roles_title')}}
+                    </span>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- END: Aside Menu -->

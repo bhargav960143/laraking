@@ -44,6 +44,9 @@ return [
     'tracker_errors_title'                                  => 'Errors ' . config('app.name'),
     'tracker_errors_keyword'                                => 'Errors ' . config('app.name'),
     'tracker_errors_description'                            => 'Errors ' . config('app.name'),
+    'roles_title'                                           => 'Roles ' . config('app.name'),
+    'roles_keyword'                                         => 'Roles ' . config('app.name'),
+    'roles_description'                                     => 'Roles ' . config('app.name'),
 
 
     /*
