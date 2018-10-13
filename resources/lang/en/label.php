@@ -26,8 +26,7 @@ return [
     'dashboard_label'                                       => 'Dashboard',
     'visits_label'                                          => 'Visits',
     'summary_label'                                         => 'Summary',
-    'user_label'                                            => 'Users',
-    'events_label'                                          => 'Events',
+    'users_label'                                           => 'Users',
     'errors_label'                                          => 'Errors',
     'dashboard_title'                                       => 'Dashboard ' . config('app.name'),
     'securepanel_title'                                     => 'Dashboard ' . config('app.name'),
@@ -36,6 +35,15 @@ return [
     'tracker_visits_title'                                  => 'Visits ' . config('app.name'),
     'tracker_visits_keyword'                                => 'Visits ' . config('app.name'),
     'tracker_visits_description'                            => 'Visits ' . config('app.name'),
+    'tracker_summary_title'                                 => 'Summary ' . config('app.name'),
+    'tracker_summary_keyword'                               => 'Summary ' . config('app.name'),
+    'tracker_summary_description'                           => 'Summary ' . config('app.name'),
+    'tracker_users_title'                                   => 'Users ' . config('app.name'),
+    'tracker_users_keyword'                                 => 'Users ' . config('app.name'),
+    'tracker_users_description'                             => 'Users ' . config('app.name'),
+    'tracker_errors_title'                                  => 'Errors ' . config('app.name'),
+    'tracker_errors_keyword'                                => 'Errors ' . config('app.name'),
+    'tracker_errors_description'                            => 'Errors ' . config('app.name'),
 
 
     /*

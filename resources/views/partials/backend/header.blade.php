@@ -65,10 +65,10 @@
                             </a>
                         </li>
                         <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel">
-                            <a href="{{url('securepanel/tracker/users')}}" title="{{trans('label.user_label')}}" class="m-menu__link">
+                            <a href="{{url('securepanel/tracker/users')}}" title="{{trans('label.users_label')}}" class="m-menu__link">
                                 <i class="m-menu__link-icon flaticon-users"></i>
                                 <span class="m-menu__link-text">
-                                    {{trans('label.user_label')}}
+                                    {{trans('label.users_label')}}
                                 </span>
                             </a>
                         </li>
