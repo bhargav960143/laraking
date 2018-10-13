@@ -49,11 +49,36 @@
                      class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
                     <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
                         <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel">
-                            <h6>
+                            <a href="{{url('securepanel/tracker/visits')}}" title="{{trans('label.visits_label')}}" class="m-menu__link">
+                                <i class="m-menu__link-icon flaticon-visible"></i>
                                 <span class="m-menu__link-text">
-                                    {{trans('label.securepanel_title')}}
+                                    {{trans('label.visits_label')}}
                                 </span>
-                            </h6>
+                            </a>
+                        </li>
+                        <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel">
+                            <a href="{{url('securepanel/tracker/summary')}}" title="{{trans('label.summary_label')}}" class="m-menu__link">
+                                <i class="m-menu__link-icon flaticon-clipboard"></i>
+                                <span class="m-menu__link-text">
+                                    {{trans('label.summary_label')}}
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel">
+                            <a href="{{url('securepanel/tracker/users')}}" title="{{trans('label.user_label')}}" class="m-menu__link">
+                                <i class="m-menu__link-icon flaticon-users"></i>
+                                <span class="m-menu__link-text">
+                                    {{trans('label.user_label')}}
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel">
+                            <a href="{{url('securepanel/tracker/errors')}}" title="{{trans('label.errors_label')}}" class="m-menu__link">
+                                <i class="m-menu__link-icon flaticon-signs-2"></i>
+                                <span class="m-menu__link-text">
+                                    {{trans('label.errors_label')}}
+                                </span>
+                            </a>
                         </li>
                     </ul>
                 </div>

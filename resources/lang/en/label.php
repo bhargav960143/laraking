@@ -24,10 +24,18 @@ return [
     'secure_panel_forgot_password_cancel_button_title'      => 'Cancel',
     'secure_panel_login_button_title'                       => 'Sign In',
     'dashboard_label'                                       => 'Dashboard',
+    'visits_label'                                          => 'Visits',
+    'summary_label'                                         => 'Summary',
+    'user_label'                                            => 'Users',
+    'events_label'                                          => 'Events',
+    'errors_label'                                          => 'Errors',
     'dashboard_title'                                       => 'Dashboard ' . config('app.name'),
     'securepanel_title'                                     => 'Dashboard ' . config('app.name'),
     'dashboard_keyword'                                     => 'Dashboard ' . config('app.name'),
     'dashboard_description'                                 => 'Dashboard ' . config('app.name'),
+    'tracker_visits_title'                                  => 'Visits ' . config('app.name'),
+    'tracker_visits_keyword'                                => 'Visits ' . config('app.name'),
+    'tracker_visits_description'                            => 'Visits ' . config('app.name'),
 
 
     /*

@@ -36,6 +36,13 @@ Auth::routes();
 Route::group(['middleware' => ['auth'], 'prefix' => 'securepanel', 'as' => 'securepanel.'], function () {
     Route::get('/dashboard', 'Backend\DashboardController@index');
 
+    Route::get('tracker', 'Backend\TrackerController@index');
+    Route::get('tracker/visits', 'Backend\TrackerController@visits');
+    Route::get('tracker/summary', 'Backend\TrackerController@summary');
+    Route::get('tracker/users', 'Backend\TrackerController@users');
+    Route::get('tracker/errors', 'Backend\TrackerController@errors');
+
+
 
     Route::resource('permissions', 'Admin\PermissionsController');
     Route::post('permissions_mass_destroy', ['uses' => 'Admin\PermissionsController@massDestroy', 'as' => 'permissions.mass_destroy']);
