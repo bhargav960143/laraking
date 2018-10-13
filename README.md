@@ -59,6 +59,14 @@ Instruction
     DB_DATABASE=laraking
     DB_USERNAME=root
     DB_PASSWORD=
+    
+    Tracker Database credential
+    
+    DB_HOST_TRACKER=127.0.0.1
+    DB_PORT_TRACKER=3306
+    DB_DATABASE_TRACKER=tracker
+    DB_USERNAME_TRACKER=root
+    DB_PASSWORD_TRACKER=
     ```
     
 4. After env file update make sure clear config cache.
