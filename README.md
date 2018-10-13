@@ -60,7 +60,7 @@ Instruction
     DB_USERNAME=root
     DB_PASSWORD=
     
-    Tracker Database credential
+    Tracker Database
     
     DB_HOST_TRACKER=127.0.0.1
     DB_PORT_TRACKER=3306
