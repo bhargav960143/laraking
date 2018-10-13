@@ -23,6 +23,12 @@ return [
     'secure_panel_forgot_password_request_button_title'     => 'Request',
     'secure_panel_forgot_password_cancel_button_title'      => 'Cancel',
     'secure_panel_login_button_title'                       => 'Sign In',
+    'dashboard_label'                                       => 'Dashboard',
+    'dashboard_title'                                       => 'Dashboard ' . config('app.name'),
+    'securepanel_title'                                     => 'Dashboard ' . config('app.name'),
+    'dashboard_keyword'                                     => 'Dashboard ' . config('app.name'),
+    'dashboard_description'                                 => 'Dashboard ' . config('app.name'),
+
 
     /*
      * Email

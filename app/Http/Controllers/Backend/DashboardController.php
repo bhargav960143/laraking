@@ -23,6 +23,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('securepanel.dashboard.view');
+        $meta_title = trans('label.dashboard_title');
+        $meta_keyword = trans('label.dashboard_keyword');
+        $meta_description = trans('label.dashboard_description');
+        return view('securepanel.dashboard.view',compact('meta_title','meta_keyword','meta_description'));
     }
 }

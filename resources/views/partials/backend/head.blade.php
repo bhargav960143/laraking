@@ -1,12 +1,9 @@
-@php
-    $data = session('user_info');
-@endphp
 <meta charset="utf-8" />
-{{--<title>
+<title>
     {{$meta_title}}
 </title>
 <meta name="description" content="{{$meta_description}}">
-<meta name="keywords" content="{{$meta_keyboard}}">--}}
+<meta name="keywords" content="{{$meta_keyword}}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!--begin::Web font -->
@@ -18,7 +15,6 @@
             sessionStorage.fonts = true;
         }
     });
-
 </script>
 <!--end::Web font -->
 <!--begin::Base Styles -->
