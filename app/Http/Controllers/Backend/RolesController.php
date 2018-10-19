@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreRolesRequest;
+use App\Http\Requests\Admin\UpdateRolesRequest;
+use DB;
 
 class RolesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return  \Illuminate\Http\Response
+    /*
+     * Display a listing of the Roles.
      */
     public function index()
     {
@@ -31,39 +31,38 @@ class RolesController extends Controller
         ));
     }
 
-    /**
-     * Show the form for creating new Role.
-     *
-     * @return \Illuminate\Http\Response
+    /*
+     * Display add new role form
      */
     public function create()
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
-        $permissions = Permission::get()->pluck('name', 'name');
+        $meta_title = trans('label.roles_add_title');
+        $meta_keyword = trans('label.roles_add_keyword');
+        $meta_description = trans('label.roles_add_description');
 
-        return view('admin.roles.create', compact('permissions'));
+        return view('securepanel.roles.add', array(
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keyword' => $meta_keyword
+        ));
     }
 
-    /**
-     * Store a newly created Role in storage.
-     *
-     * @param  \App\Http\Requests\StoreRolesRequest  $request
-     * @return \Illuminate\Http\Response
+    /*
+     * Save role
      */
     public function store(StoreRolesRequest $request)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
+        $user_request = $request->all();
+        $user_request['name'] = strtolower($user_request['role_name']);
+        unset($user_request['role_name']);
+        $role = Role::create($user_request);
+        if(!empty($role)){
+            return redirect()->route('securepanel.roles.index')->with('role_success_msg', trans('label.role_insert_success_msg'));
         }
-        $role = Role::create($request->except('permission'));
-        $permissions = $request->input('permission') ? $request->input('permission') : [];
-        $role->givePermissionTo($permissions);
-
-        return redirect()->route('admin.roles.index');
+        else{
+            return redirect()->route('securepanel.roles.index')->with('role_error_msg', trans('label.role_insert_error_msg'));
+        }
     }
-
 
     /**
      * Show the form for editing Role.
@@ -73,34 +72,35 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
-        $permissions = Permission::get()->pluck('name', 'name');
-
+        $meta_title = trans('label.roles_edit_title');
+        $meta_keyword = trans('label.roles_edit_keyword');
+        $meta_description = trans('label.roles_edit_description');
         $role = Role::findOrFail($id);
-
-        return view('admin.roles.edit', compact('role', 'permissions'));
+        return view('securepanel.roles.edit', array(
+            'role' => $role,
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keyword' => $meta_keyword
+        ));
     }
 
-    /**
-     * Update Role in storage.
-     *
-     * @param  \App\Http\Requests\UpdateRolesRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+    /*
+     * Update Role
      */
     public function update(UpdateRolesRequest $request, $id)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
+        $user_request = $request->all();
         $role = Role::findOrFail($id);
-        $role->update($request->except('permission'));
-        $permissions = $request->input('permission') ? $request->input('permission') : [];
-        $role->syncPermissions($permissions);
+        $user_request['name'] = strtolower($user_request['role_name']);
+        unset($user_request['role_name']);
+        $role->update($user_request);
 
-        return redirect()->route('admin.roles.index');
+        if(!empty($role)){
+            return redirect()->route('securepanel.roles.index')->with('role_success_msg', trans('label.role_update_success_msg'));
+        }
+        else{
+            return redirect()->route('securepanel.roles.index')->with('role_error_msg', trans('label.role_update_error_msg'));
+        }
     }
 
 
@@ -112,31 +112,86 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
         $role = Role::findOrFail($id);
-        $role->delete();
-
-        return redirect()->route('admin.roles.index');
+        if(!empty($role)){
+            $role->delete();
+            return redirect()->route('securepanel.roles.index')->with('role_success_msg', trans('label.role_delete_success_msg'));
+        }
+        else{
+            return redirect()->route('securepanel.roles.index')->with('role_error_msg', trans('label.role_delete_error_msg'));
+        }
     }
 
-    /**
-     * Delete all selected Role at once.
-     *
-     * @param Request $request
+    /*
+     * Get Table Data
      */
-    public function massDestroy(Request $request)
-    {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
-        if ($request->input('ids')) {
-            $entries = Role::whereIn('id', $request->input('ids'))->get();
+    public function get_table(Request $request){
+        $totalCol = $request->input('iColumns');
+        $search = $request->input('sSearch');
+        $columns = explode(',', $request->input('columns'));
+        $start = $request->input('iDisplayStart');
+        $page_length = $request->input('iDisplayLength');
 
-            foreach ($entries as $entry) {
-                $entry->delete();
+        $selQuery = "SELECT
+                      @row_number:=@row_number+1 AS role_no,
+                      r.id AS role_id,
+                      r.name AS role_name,
+                      DATE_FORMAT(r.created_at, '%D %M %Y %r') AS created_date
+                    FROM roles AS r,
+                      (SELECT @row_number:=0) AS t
+                    WHERE r.name IS NOT NULL ";
+
+        if (!empty($search)) {
+            $selQuery .= " AND ( r.name LIKE '%" . $search . "%' OR DATE_FORMAT(r.created_at,'%D %M %Y %r') LIKE '%" . $search . "%')";
+        }
+
+        for ($i = 0; $i < $request->input('iColumns'); $i++) {
+            $searchable = $request->input('bSearchable_' . $i);
+            $searchTerm = $request->input('sSearch_' . $i);
+
+            if ($searchable && !empty($searchTerm)) {
+                switch ($columns[$i]) {
+                    case 'name':
+                        $selQuery .= " AND r.name  = " . $searchTerm;
+                        break;
+                    case 'created_at':
+                        $selQuery .= " AND DATE_FORMAT(r.created_at,'%D %M %Y %r')  = " . $searchTerm;
+                        break;
+                }
             }
         }
+
+        $selQuery .= " GROUP BY r.id";
+
+        $getTotalRecords = DB::select($selQuery);
+        $totalRecords = count($getTotalRecords);
+
+        $selQuery .= " ORDER BY ";
+        for ($i = 0; $i < $request->input('iSortingCols'); $i++) {
+            $sortcol = $request->input('iSortCol_' . $i);
+            if ($request->input('bSortable_' . $sortcol)) {
+                switch ($columns[$sortcol]) {
+                    case 'role_name':
+                        $selQuery .= "r.name " . $request->input('sSortDir_' . $i). ',';
+                        break;
+                    case 'created_date':
+                        $selQuery .= "DATE_FORMAT(r.created_at,'%D %M %Y %r') " . $request->input('sSortDir_' . $i). ',';
+                        break;
+                }
+            }
+        }
+        $selQuery .= " r.id DESC";
+        $selQuery .= " LIMIT " . $start . ", " . $page_length;
+
+        $data = DB::select($selQuery);
+
+
+        return json_encode(array(
+            "aaData" => $data,
+            "iTotalDisplayRecords" => $totalRecords,
+            "iTotalRecords" => $totalRecords,
+            "sColumns" => $request->input('sColumns'),
+            "sEcho" => $request->input('sEcho')
+        ));
     }
 }

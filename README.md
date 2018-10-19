@@ -106,6 +106,7 @@ http://127.0.0.1:8080/securepanel/login
     
 Package Installed
 ------------
+- <p><a href="https://laravelcollective.com/docs/5.4/html" title="Laravel Collective">Laravel Collective</a></p>
 - <p><a href="https://github.com/barryvdh/laravel-debugbar" title="Laravel Debugbar">Laravel Debugbar</a></p>
 - <p><a href="https://github.com/spatie/laravel-permission" title="Laravel Tinker">Laravel Permission</a></p>
 - <p><a href="https://github.com/antonioribeiro/tracker" title="Laravel Stats Tracker">Laravel Stats Tracker</a></p>

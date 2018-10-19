@@ -36,21 +36,22 @@ Auth::routes();
 Route::group(['middleware' => ['auth'], 'prefix' => 'securepanel', 'as' => 'securepanel.'], function () {
     Route::get('dashboard', 'Backend\DashboardController@index');
 
+    /*
+     * Roles Route
+     */
+    Route::post('roles/get_table','Backend\RolesController@get_table');
     Route::resource('roles', 'Backend\RolesController');
-    Route::post('roles_mass_destroy', ['uses' => 'Backend\RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
 
     Route::get('tracker', 'Backend\TrackerController@index');
     Route::get('tracker/visits', 'Backend\TrackerController@visits');
     Route::get('tracker/summary', 'Backend\TrackerController@summary');
     Route::get('tracker/users', 'Backend\TrackerController@users');
     Route::get('tracker/errors', 'Backend\TrackerController@errors');
-
-
-
+    /*
     Route::resource('permissions', 'Admin\PermissionsController');
     Route::post('permissions_mass_destroy', ['uses' => 'Admin\PermissionsController@massDestroy', 'as' => 'permissions.mass_destroy']);
     Route::post('users/get_table','Admin\UsersController@get_table');
     Route::resource('users', 'Admin\UsersController');
-    Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
+    Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);*/
 });
 

@@ -28,7 +28,9 @@ return [
     'summary_label'                                         => 'Summary',
     'users_label'                                           => 'Users',
     'errors_label'                                          => 'Errors',
-    'dashboard_title'                                       => 'Dashboard ' . config('app.name'),
+    'back_label'                                            => 'Back',
+    'submit_label'                                          => 'Submit',
+    'dashboard_title'                                       => 'Dashboard',
     'securepanel_title'                                     => 'Dashboard ' . config('app.name'),
     'dashboard_keyword'                                     => 'Dashboard ' . config('app.name'),
     'dashboard_description'                                 => 'Dashboard ' . config('app.name'),
@@ -44,9 +46,20 @@ return [
     'tracker_errors_title'                                  => 'Errors ' . config('app.name'),
     'tracker_errors_keyword'                                => 'Errors ' . config('app.name'),
     'tracker_errors_description'                            => 'Errors ' . config('app.name'),
-    'roles_title'                                           => 'Roles ' . config('app.name'),
+
+    /*
+     * Roles module
+     */
+    'roles_title'                                           => 'Roles',
+    'roles_title_listing'                                   => 'Roles Listing',
     'roles_keyword'                                         => 'Roles ' . config('app.name'),
     'roles_description'                                     => 'Roles ' . config('app.name'),
+    'roles_add_title'                                       => 'Add new role',
+    'roles_add_keyword'                                     => 'Add new role',
+    'roles_add_description'                                 => 'Add new role',
+    'roles_edit_title'                                      => 'Edit role',
+    'roles_edit_keyword'                                    => 'Edit role',
+    'roles_edit_description'                                => 'Edit role',
 
 
     /*
@@ -73,6 +86,28 @@ return [
     'email_need_help_url'           => url('/'),
     'email_terms_condition_url'     => url('/'),
     'email_general_question_url'    => url('/'),
+
+    /*
+     * Field name roles
+     */
+    'no_title'                      => 'No',
+    'role_name_field_title'         => 'Role',
+    'role_name_field_note'          => 'Specify unique role name like [admin,user,etc...]',
+    'created_date_field_title'      => 'Created Date',
+    'action_field_title'            => 'Action',
+
+    /*
+     * Error Message
+     */
+
+    // Roles
+    'role_field_required_error_msg' => "Invalid role name. Please try again.",
+    'role_insert_success_msg'       => "New role created successfully.",
+    'role_update_success_msg'       => "Role updated successfully.",
+    'role_delete_success_msg'       => "Role deleted successfully.",
+    'role_insert_error_msg'         => "Something wen't wrong, new role not updated. Please try again.",
+    'role_update_error_msg'         => "Something wen't wrong, role not updated. Please try again.",
+    'role_delete_error_msg'         => "Something wen't wrong, role not delete. Please try again.",
 
 ];
 

@@ -1,5 +1,5 @@
-var laraking_login = function () {
-    $("#m_login");
+var laraking_roles = function () {
+    $("#form_role_add");
     return {
         init: function () {
             $("#m_role_add_submit").click(function (i) {
@@ -7,8 +7,7 @@ var laraking_login = function () {
                 var a = $(this), n = $(this).closest("form");
                 n.validate({
                     rules: {
-                        email: {required: !0, email: !0},
-                        password: {required: !0}
+                        role_name: {required: !0},
                     }
                 }), n.valid() && (a.addClass("m-loader m-loader--right m-loader--light").attr("disabled", !0), n.submit())
             })
@@ -16,5 +15,5 @@ var laraking_login = function () {
     }
 }();
 jQuery(document).ready(function () {
-    laraking_login.init()
+    laraking_roles.init()
 });
