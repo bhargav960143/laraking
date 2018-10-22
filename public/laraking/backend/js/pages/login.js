@@ -2,7 +2,7 @@ var laraking_login = function () {
     $("#m_login");
     return {
         init: function () {
-            $("#m_role_add_submit").click(function (i) {
+            $("#m_login_signin_submit").click(function (i) {
                 i.preventDefault();
                 var a = $(this), n = $(this).closest("form");
                 n.validate({

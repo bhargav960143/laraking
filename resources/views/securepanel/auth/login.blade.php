@@ -13,7 +13,7 @@
                 <div class="m-login__container">
                     <div class="m-login__logo">
                         <a href="#">
-                            <img src="{{url('laraking/img/logo.png')}}" width="100px" height="100px">
+                            <img src="{{url('laraking/img/logo.png')}}" height="100px">
                         </a>
                     </div>
                     <div class="m-login__signin">

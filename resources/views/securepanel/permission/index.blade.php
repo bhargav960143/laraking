@@ -1,5 +1,9 @@
 @inject('request', 'Illuminate\Http\Request')
 
+@php
+    $user_info = session('user_info');
+@endphp
+
 @extends('layouts.backend.app')
 
 @section('pagecss')
@@ -19,7 +23,7 @@
                 <div class="d-flex align-items-center">
                     <div class="mr-auto">
                         <h3 class="m-subheader__title m-subheader__title--separator">
-                            {{trans('label.summary_label')}}
+                            {{trans('label.permission_title')}}
                         </h3>
                         <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                             <li class="m-nav__item m-nav__item--home">
@@ -31,9 +35,19 @@
                                 -
                             </li>
                             <li class="m-nav__item">
-                                <a href="{{ url('securepanel/tracker/summary') }}" title="{{trans('label.visits_label')}}" class="m-nav__link">
+                                <a href="{{ url('securepanel/roles') }}" title="{{trans('label.roles_title')}}" class="m-nav__link">
                                     <span class="m-nav__link-text">
-                                        {{trans('label.summary_label')}}
+                                        {{trans('label.roles_title')}}
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="m-nav__separator">
+                                -
+                            </li>
+                            <li class="m-nav__item">
+                                <a href="{{ url('securepanel/roles/permission/' . $role->id) }}" title="{{trans('label.permission_title')}}" class="m-nav__link">
+                                    <span class="m-nav__link-text">
+                                        {{trans('label.permission_title')}}
                                     </span>
                                 </a>
                             </li>
@@ -49,70 +63,64 @@
                         <div class="m-portlet__head-caption">
                             <div class="m-portlet__head-title">
                                 <h3 class="m-portlet__head-text">
-                                    {{trans('label.summary_title_listing')}}
+                                   {{ucfirst($role->name)}} {{trans('label.permission_title_listing')}}
                                 </h3>
                             </div>
+                        </div>
+                        <div class="m-portlet__head-tools">
+                            <ul class="m-portlet__nav">
+                                <li class="m-portlet__nav-item">
+                                    <a href="{{ url('securepanel/roles/permission/assign/' . $role->id) }}" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air">
+                                        <span>
+                                            <i class="la la-plus"></i>
+                                            <span>
+                                                {{trans('label.permission_assign_title')}}
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="m-portlet__body">
                         @if (session('role_success_msg'))
                             <div class="alert alert-success">
                                 <ul>
-                                    <li>{{ session('visits_success_msg') }}</li>
+                                    <li>{{ session('permission_success_msg') }}</li>
                                 </ul>
                             </div>
                         @endif
                         @if (session('role_error_msg'))
                             <div class="alert alert-danger">
                                 <ul>
-                                    <li>{{ session('visits_error_msg') }}</li>
+                                    <li>{{ session('permission_error_msg') }}</li>
                                 </ul>
                             </div>
-                        @endif
+                    @endif
                     <!--BEGIN: Datatable -->
-                        <table class="table table-striped- table-bordered table-hover table-checkable" id="table_summary_list">
+                        <table class="table table-striped- table-bordered table-hover table-checkable" id="table_permission_list">
                             <thead>
                             <tr>
                                 <th>
                                     {{trans('label.no_title')}}
                                 </th>
                                 <th>
-                                    {{trans('label.visits_ip_field_title')}}
+                                    {{trans('label.permission_name_field_title')}}
                                 </th>
                                 <th>
-                                    {{trans('label.visits_country_field_title')}}
+                                    {{trans('label.created_date_field_title')}}
                                 </th>
                                 <th>
-                                    {{trans('label.visits_user_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.visits_device_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.visits_browser_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.visits_url_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.visits_page_views_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.visits_created_date_field_title')}}
+                                    {{trans('label.action_field_title')}}
                                 </th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <th id="visit_no"></th>
-                                <th id="client_ip"></th>
-                                <th id="country_city"></th>
-                                <th id="user_info"></th>
-                                <th id="method"></th>
-                                <th id="url"></th>
-                                <th id="device"></th>
-                                <th id="user_agent"></th>
+                                <th id="role_no"></th>
+                                <th id="role_name"></th>
                                 <th id="created_date"></th>
+                                <th id="action"></th>
                             </tr>
                             </tbody>
                         </table>
@@ -128,5 +136,5 @@
 
 @section('pagescript')
     <script src="{{ url('laraking/backend/js/datatables.bundle.js') }}" type="text/javascript"></script>
-    <script src="{{ url('laraking/backend/js/pages/datatable/track_summary_data_table.js') }}" type="text/javascript"></script>
+    <script src="{{ url('laraking/backend/js/pages/datatable/roles_data_table.js') }}" type="text/javascript"></script>
 @stop

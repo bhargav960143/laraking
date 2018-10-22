@@ -56,7 +56,7 @@ return [
      *     '172.17.0.0/255.255.0.0'
      */
     'do_not_track_ips' => [
-        '127.0.0.0/24', /// range 127.0.0.1 - 127.0.0.255
+        //'127.0.0.0/24', /// range 127.0.0.1 - 127.0.0.255
     ],
 
     /*
@@ -124,7 +124,7 @@ return [
      *
      */
 
-    'geoip_database_path' => __DIR__.'/geoip', //storage_path('geoip'),
+    'geoip_database_path' => __DIR__.'\vendor\pragmarx\support\src\GeoIp',//__DIR__.'/geoip', //storage_path('geoip'),
 
     /*
      * Also log SQL query bindings?
@@ -248,7 +248,8 @@ return [
      * ** IMPORTANT **
      *   Change the user model to your own.
      */
-    'user_model' => 'PragmaRX\Tracker\Vendor\Laravel\Models\User',
+    //'user_model' => 'PragmaRX\Tracker\Vendor\Laravel\Models\User',
+    'user_model' =>  'App\User',
 
     /*
      * You can use your own model for every single table Tracker has.
@@ -307,7 +308,7 @@ return [
     /*
      * Laravel internal variables on user authentication and login.
      */
-    'authentication_ioc_binding' => ['auth'], // defaults to 'auth' in Illuminate\Support\Facades\Auth
+    'authentication_ioc_binding' => ['auth'],//['auth'], // defaults to 'auth' in Illuminate\Support\Facades\Auth
 
     'authenticated_check_method' => 'check', // to Auth::check()
 

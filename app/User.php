@@ -31,6 +31,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $connection = 'mysql';
+
     /**
      * Hash password
      * @param $input

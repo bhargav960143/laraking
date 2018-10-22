@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreRolesRequest;
 use App\Http\Requests\Admin\UpdateRolesRequest;
 use DB;
+use Route;
 
 class RolesController extends Controller
 {
@@ -17,14 +18,11 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $roles_list = Role::all();
-
         $meta_title = trans('label.roles_title');
         $meta_keyword = trans('label.roles_keyword');
         $meta_description = trans('label.roles_description');
 
         return view('securepanel.roles.index', array(
-            'roles' => $roles_list,
             'meta_title' => $meta_title,
             'meta_description' => $meta_description,
             'meta_keyword' => $meta_keyword
@@ -64,11 +62,8 @@ class RolesController extends Controller
         }
     }
 
-    /**
+    /*
      * Show the form for editing Role.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -104,11 +99,8 @@ class RolesController extends Controller
     }
 
 
-    /**
-     * Remove Role from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+    /*
+     * Remove Role.
      */
     public function destroy($id)
     {
@@ -193,5 +185,52 @@ class RolesController extends Controller
             "sColumns" => $request->input('sColumns'),
             "sEcho" => $request->input('sEcho')
         ));
+    }
+
+    /*
+     * get role permission
+     */
+    public function get_role_permission($id, Request $request){
+        $controller_method_list = [];
+        $route_list = Route::getRoutes()->getRoutes();
+        $i = 0;
+        foreach ($route_list as $routeData){
+            $action = $routeData->getAction();
+            if (array_key_exists('controller', $action)){
+                $controller_full_string = $action['controller'];
+                if(strpos($controller_full_string, '@') !== false) {
+                    $controller_path_array = explode('@',$action['controller']);
+                    $controller_name_with_path = current($controller_path_array);
+
+                    if(strpos($controller_name_with_path, '\\') !== false) {
+                        $controller_split = explode('\\',$controller_name_with_path);
+                        $controller_name = end($controller_split);
+                        $method_name = end($controller_path_array);
+
+                        $controller_method_list[$i]['controller_name'] = $controller_name;
+                        $controller_method_list[$i]['method_name'] = $method_name;
+                        $i++;
+                    }
+                }
+            }
+        }
+
+        $role = Role::findOrFail($id);
+
+        if(!empty($role)){
+            $meta_title = trans('label.permission_title');
+            $meta_keyword = trans('label.permission_keyword');
+            $meta_description = trans('label.permission_description');
+
+            return view('securepanel.permission.index', array(
+                'role' => $role,
+                'meta_title' => $meta_title,
+                'meta_description' => $meta_description,
+                'meta_keyword' => $meta_keyword
+            ));
+        }
+        else{
+            return redirect()->route('securepanel.roles.index')->with('role_error_msg', trans('label.role_found_error_msg'));
+        }
     }
 }

@@ -5,7 +5,7 @@ return [
      * Front End
      */
     'backend_login_title' => "Welcome to laraking backend.",
-    'backend_login_description' => "Premium Laravel Admin Panel.",
+    'backend_login_description' => "Premium Laraking Admin Panel.",
     'home_title' => "Laraking",
 
 
@@ -61,6 +61,23 @@ return [
     'roles_edit_keyword'                                    => 'Edit role',
     'roles_edit_description'                                => 'Edit role',
 
+    /*
+     * Tracker
+     */
+    'visits_title_listing'                                  => 'Visits Listing',
+    'summary_title_listing'                                 => 'Summary Listing',
+    'users_title_listing'                                   => 'Users Listing',
+    'error_title_listing'                                   => 'Error Listing',
+
+    /*
+     * Permission module
+     */
+    'permission_title'                                       => 'Permission',
+    'permission_keyword'                                     => 'Permission ' . config('app.name'),
+    'permission_description'                                 => 'Permission ' . config('app.name'),
+    'permission_title_listing'                               => 'Permission Listing',
+    'permission_assign_title'                                => 'Assign permission',
+
 
     /*
      * Email
@@ -96,6 +113,19 @@ return [
     'created_date_field_title'      => 'Created Date',
     'action_field_title'            => 'Action',
 
+    'visits_ip_field_title'                 => 'IP',
+    'visits_country_field_title'            => 'Country/City',
+    'visits_user_field_title'               => 'User',
+    'visits_device_field_title'             => 'Device',
+    'visits_browser_field_title'            => 'Browser',
+    'visits_url_field_title'                => 'URL',
+    'visits_page_views_field_title'         => 'Page Views',
+    'visits_created_date_field_title'       => 'Visited Date',
+    'users_last_activity_date_field_title'  => 'Last Activity Date',
+    'users_email_field_title'               => 'Email',
+    'error_code_field_title'                => 'Error Code',
+    'error_message_field_title'             => 'Error Message',
+
     /*
      * Error Message
      */
@@ -108,6 +138,7 @@ return [
     'role_insert_error_msg'         => "Something wen't wrong, new role not updated. Please try again.",
     'role_update_error_msg'         => "Something wen't wrong, role not updated. Please try again.",
     'role_delete_error_msg'         => "Something wen't wrong, role not delete. Please try again.",
+    'role_found_error_msg'          => "Something wen't wrong, role not found. Please try again.",
 
 ];
 

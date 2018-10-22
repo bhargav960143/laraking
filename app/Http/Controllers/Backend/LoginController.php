@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+use Tracker;
+use PragmaRX\Tracker\Vendor\Laravel\Models\Session as TrackerSession;
 
 class LoginController extends Controller
 {
@@ -22,7 +24,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
+    /**TrackVisitsMiddleware.php
      * Where to redirect users after login.
      *
      * @var string
@@ -63,6 +65,14 @@ class LoginController extends Controller
                 $user_info['logged_in_email'] = $user['email'];
                 $user_info['logged_in_role'] = Auth::user()->roles[0]['name'];
                 session(['user_info' => $user_info]);
+            }
+
+            $visitor = Tracker::currentSession();
+            if(isset($visitor['id']) && !empty($visitor['id'])){
+                // update current session user id
+                $current_session_data = TrackerSession::findOrFail($visitor['id']);
+                $current_session_data->user_id = $user['id'];
+                $current_session_data->save();
             }
         }
         else{

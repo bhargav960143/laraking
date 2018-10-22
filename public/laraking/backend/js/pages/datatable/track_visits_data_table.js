@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var oTable = $('#table_roles_list').DataTable({
+    var oTable = $('#table_visits_list').DataTable({
         "bStateSave": true,
         "processing": true,
         "bPaginate": true,
@@ -7,7 +7,7 @@ $(document).ready(function () {
         "bProcessing": true,
         "iDisplayLength": 10,
         "bServerSide": true,
-        "sAjaxSource": BASE_URL + "/roles/get_table",
+        "sAjaxSource": BASE_URL + "/tracker/get_visits_table",
         'bPaginate': true,
         'initComplete':function () {
         },
@@ -23,10 +23,15 @@ $(document).ready(function () {
         },
 
         "columns": [
-            {"data": "role_no"},
-            {"data": "role_name"},
+            {"data": "visit_no"},
+            {"data": "client_ip"},
+            {"data": "country_city"},
+            {"data": "user_info"},
+            {"data": "device"},
+            {"data": "browser"},
+            {"data": "url"},
+            {"data": "page_views"},
             {"data": "created_date"},
-            {"data": "role_id"},
         ],
         "order": [[0, "desc"]],
         "lengthMenu": [
@@ -51,7 +56,7 @@ $(document).ready(function () {
             });
         },
         "fnDrawCallback": function () {
-            $('body').css('min-height', ($('#table_roles_list tr').length * 50) + 200);
+            $('body').css('min-height', ($('#table_visits_list tr').length * 50) + 200);
             $(window).trigger('resize');
         },
         "dom":"<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>\n\t\t\t<'row'<'col-sm-12'tr>>\n\t\t\t<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
@@ -67,22 +72,6 @@ $(document).ready(function () {
                 text:      '<i class="fa fa-external-link fa-2x" aria-hidden="true"></i>',
                 titleAttr: 'CSV'
             },
-        ],
-        "columnDefs": [
-            {
-                "render": function (data, type, row) {
-                    var token_hash = $('meta[name="csrf-token"]').attr('content');
-                        roles_action = '<a href="' + BASE_URL + "/roles/" + data + '/edit" class="btn btn-info">Edit</a>&nbsp;' + '<form method="POST" name="form_'+ data +'" action="' + BASE_URL + "/roles/" + data + '" accept-charset="UTF-8" style="display: inline-block;" onsubmit="return confirm(\'Are you sure you want to delete?\');"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="'+token_hash+'"><input class="btn btn-xs btn-danger" type="submit" value="Delete"></form>&nbsp;' + '<a href="' + BASE_URL + "/roles/permission/" + data + '" class="btn btn-brand">Permission</a>&nbsp;';
-
-                    return [
-                        roles_action
-                    ].join('');
-
-                },
-                "targets": $('#table_roles_list th#action').index(),
-                "orderable": false,
-                "searchable": false
-            }
         ]
     });
 

@@ -12,6 +12,12 @@ For Windows
 4. Run laravel in local server
     php artisan serve --port=8080
 
+5. Run command after any change in config file.
+- php artisan cache:clear
+- php artisan config:cache
+
+
 Package Installed
 - Laravel Debugbar composer require barryvdh/laravel-debugbar --dev
 -
+100px

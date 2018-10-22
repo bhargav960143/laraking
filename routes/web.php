@@ -40,10 +40,17 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'securepanel', 'as' => 'secu
      * Roles Route
      */
     Route::post('roles/get_table','Backend\RolesController@get_table');
+    Route::get('roles/permission/{id}','Backend\RolesController@get_role_permission');
     Route::resource('roles', 'Backend\RolesController');
 
     Route::get('tracker', 'Backend\TrackerController@index');
+
     Route::get('tracker/visits', 'Backend\TrackerController@visits');
+    Route::post('tracker/get_visits_table','Backend\TrackerController@get_visits_table');
+    Route::post('tracker/get_summary_table','Backend\TrackerController@get_summary_table');
+    Route::post('tracker/get_users_table','Backend\TrackerController@get_users_table');
+    Route::post('tracker/get_errors_table','Backend\TrackerController@get_errors_table');
+
     Route::get('tracker/summary', 'Backend\TrackerController@summary');
     Route::get('tracker/users', 'Backend\TrackerController@users');
     Route::get('tracker/errors', 'Backend\TrackerController@errors');
