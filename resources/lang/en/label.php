@@ -78,6 +78,12 @@ return [
     'permission_title_listing'                               => 'Permission Listing',
     'permission_assign_title'                                => 'Assign permission',
 
+    /*
+     * Dashboard
+     */
+    'dashboard_user_views_title'                             => 'User Views',
+    'dashboard_user_views_description'                       => 'Month wise user views display',
+
 
     /*
      * Email

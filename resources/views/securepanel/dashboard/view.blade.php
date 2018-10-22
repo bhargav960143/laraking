@@ -22,15 +22,40 @@
             </div>
             <!-- END: Subheader -->
             <div class="m-content">
-                Hi
+                <div class="m-portlet">
+                    <div class="m-portlet__body  m-portlet__body--no-padding">
+                        <div class="row m-row--no-padding m-row--col-separator-xl">
+                            <div class="col-xl-8">
+                                <!--begin:: Widgets/Daily Sales-->
+                                <div class="m-widget14">
+                                    <div class="m-widget14__header m--margin-bottom-30">
+                                        <h3 class="m-widget14__title">
+                                            {{trans('label.dashboard_user_views_title')}}
+                                        </h3>
+                                        <span class="m-widget14__desc">
+                                            {{trans('label.dashboard_user_views_description')}}
+                                        </span>
+                                    </div>
+                                    <div class="m-widget14__chart">
+                                        <canvas id="user_views_container"></canvas>
+                                    </div>
+                                </div>
+                                <!--end:: Widgets/Daily Sales-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 @endsection
 
 @section('pagescript')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"
-            type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js" type="text/javascript"></script>
+    @php
+        $count_data_views = implode(',',$views_count);
+    @endphp
+    <script>var count_data_views = @php echo '[' . $count_data_views . ']'; @endphp</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" type="text/javascript"></script>
+    <script src="{{ url('laraking/backend/js/chart_util.js') }}" type="text/javascript"></script>
     <script src="{{ url('laraking/backend/js/pages/dashboard.js') }}" type="text/javascript"></script>
 @stop
