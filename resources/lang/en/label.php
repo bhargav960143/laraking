@@ -82,7 +82,9 @@ return [
      * Dashboard
      */
     'dashboard_user_views_title'                             => 'User Views',
+    'dashboard_user_registered_views_title'                  => 'Registered User',
     'dashboard_user_views_description'                       => 'Month wise user views display',
+    'dashboard_user_registered_views_description'            => 'Month wise registered user display',
 
 
     /*
