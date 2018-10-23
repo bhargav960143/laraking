@@ -147,9 +147,13 @@ return [
     'role_update_error_msg'         => "Something wen't wrong, role not updated. Please try again.",
     'role_delete_error_msg'         => "Something wen't wrong, role not delete. Please try again.",
     'role_found_error_msg'          => "Something wen't wrong, role not found. Please try again.",
+    'permission_found_error_msg'          => "Something wen't wrong, permission not found. Please try again.",
+    'permission_delete_success_msg'   => "Permission revoked successfully.",
 
     // Premission
     'permission_name_field_title' => "Permission",
+    'controller_name_field_title' => "Controller",
+    'guard_name_field_title' => "Guard Name",
 
 
 ];

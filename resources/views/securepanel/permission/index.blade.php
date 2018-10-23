@@ -105,6 +105,15 @@
                                     {{trans('label.no_title')}}
                                 </th>
                                 <th>
+                                    {{trans('label.role_name_field_title')}}
+                                </th>
+                                <th>
+                                    {{trans('label.guard_name_field_title')}}
+                                </th>
+                                <th>
+                                    {{trans('label.controller_name_field_title')}}
+                                </th>
+                                <th>
                                     {{trans('label.permission_name_field_title')}}
                                 </th>
                                 <th>
@@ -117,8 +126,11 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <th id="role_no"></th>
+                                <th id="permission_no"></th>
                                 <th id="role_name"></th>
+                                <th id="guard_name"></th>
+                                <th id="controller_name"></th>
+                                <th id="permission_name"></th>
                                 <th id="created_date"></th>
                                 <th id="action"></th>
                             </tr>
@@ -135,6 +147,7 @@
 @endsection
 
 @section('pagescript')
+    <script>var role_id = @php echo $role->id; @endphp</script>
     <script src="{{ url('laraking/backend/js/datatables.bundle.js') }}" type="text/javascript"></script>
-    <script src="{{ url('laraking/backend/js/pages/datatable/roles_data_table.js') }}" type="text/javascript"></script>
+    <script src="{{ url('laraking/backend/js/pages/datatable/permission_data_table.js') }}" type="text/javascript"></script>
 @stop
