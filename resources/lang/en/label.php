@@ -148,6 +148,10 @@ return [
     'role_delete_error_msg'         => "Something wen't wrong, role not delete. Please try again.",
     'role_found_error_msg'          => "Something wen't wrong, role not found. Please try again.",
 
+    // Premission
+    'permission_name_field_title' => "Permission",
+
+
 ];
 
 

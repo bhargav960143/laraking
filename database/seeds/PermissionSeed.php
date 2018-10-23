@@ -13,7 +13,7 @@ class PermissionSeed extends Seeder
      */
     public function run()
     {
-        Permission::create(['name' => 'dashboard']);
+        Permission::create(['name' => 'dashboard', 'controller_name' => 'DashboardController']);
         UserHasPermissions::create([
             'permission_id' => '1',
             'model_type' => 'App\User',
