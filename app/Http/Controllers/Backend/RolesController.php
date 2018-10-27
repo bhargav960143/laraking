@@ -281,7 +281,6 @@ class RolesController extends Controller
             }
             $selQuery .= " p.id DESC";
             $selQuery .= " LIMIT " . $start . ", " . $page_length;
-
             $data = DB::select($selQuery);
 
 
@@ -298,40 +297,52 @@ class RolesController extends Controller
     /*
      * get role permission
      */
-    public function get_role_permission($id, Request $request){
-        $controller_method_list = [];
-        $route_list = Route::getRoutes()->getRoutes();
-        $i = 0;
-        foreach ($route_list as $routeData){
-            $action = $routeData->getAction();
-            if (array_key_exists('controller', $action)){
-                $controller_full_string = $action['controller'];
-                if(strpos($controller_full_string, '@') !== false) {
-                    $controller_path_array = explode('@',$action['controller']);
-                    $controller_name_with_path = current($controller_path_array);
+    public function get_role_permission($id){
 
-                    if(strpos($controller_name_with_path, '\\') !== false) {
-                        $controller_split = explode('\\',$controller_name_with_path);
-                        $controller_name = end($controller_split);
-                        $method_name = end($controller_path_array);
-
-                        $controller_method_list[$i]['controller_name'] = $controller_name;
-                        $controller_method_list[$i]['method_name'] = $method_name;
-                        $i++;
-                    }
-                }
-            }
+        if(empty($id)){
+            return redirect()->route('securepanel.roles.index')->with('role_error_msg', trans('label.role_found_error_msg'));
         }
 
         $role = Role::findOrFail($id);
-
         if(!empty($role)){
             $meta_title = trans('label.permission_title');
             $meta_keyword = trans('label.permission_keyword');
             $meta_description = trans('label.permission_description');
 
+            $controller_method_list = [];
+            $route_list = Route::getRoutes()->getRoutes();
+            $i = 0;
+            foreach ($route_list as $routeData){
+                $action = $routeData->getAction();
+                if (array_key_exists('controller', $action)){
+                    $controller_full_string = $action['controller'];
+                    if(strpos($controller_full_string, '@') !== false) {
+                        $controller_path_array = explode('@',$action['controller']);
+                        $controller_name_with_path = current($controller_path_array);
+
+                        if(strpos($controller_name_with_path, '\\') !== false) {
+                            $controller_split = explode('\\',$controller_name_with_path);
+                            $controller_name = end($controller_split);
+                            $method_name = end($controller_path_array);
+
+                            $controller_method_list[$i]['controller_name'] = $controller_name;
+                            $controller_method_list[$i]['method_name'] = $method_name;
+
+                            $permission_updated_name = $controller_name . '_' . $method_name;
+                            $controller_method_list[$i]['is_assign'] = 0;
+                            if($role->permissions->contains('name',$permission_updated_name)){
+                                $controller_method_list[$i]['is_assign'] = 1;
+                            }
+
+                            $i++;
+                        }
+                    }
+                }
+            }
+
             return view('securepanel.permission.index', array(
                 'role' => $role,
+                'controller_method_list' => $controller_method_list,
                 'meta_title' => $meta_title,
                 'meta_description' => $meta_description,
                 'meta_keyword' => $meta_keyword
@@ -345,19 +356,72 @@ class RolesController extends Controller
     /*
      * Remove Permission
      */
-    public function remove_permission(Request $request){
+    public function unassign_permission(Request $request){
         $user_request = $request->all();
-        if(isset($user_request['permission_id']) && !empty($user_request['permission_id']) && isset($user_request['role_id']) && !empty($user_request['role_id'])){
-            $permission_data = Permission::findOrFail($user_request['permission_id']);
-            $role_data = Role::findOrFail($user_request['role_id']);
+        if(isset($user_request['per_controller']) && !empty($user_request['per_controller']) && isset($user_request['per_method']) && !empty($user_request['per_method']) && isset($user_request['role_id']) && !empty($user_request['role_id'])){
+            $permission_name = $user_request['per_method'];
+            $controller_name = $user_request['per_controller'];
+            $role_id = $user_request['role_id'];
+
+            // check permission is exist or not
+            $permission_data = $this->check_permission($permission_name,$controller_name);
+            $role_data = Role::findOrFail($role_id);
 
             $role_data->revokePermissionTo($permission_data->name);
             $permission_data->removeRole($role_data);
 
-            return redirect('securepanel/roles/permission/'.$role_data->id)->with('permission_success_msg', trans('label.permission_delete_success_msg'));
+            return response()->json([
+                'status' => 'success',
+                'msg' => trans('label.permission_unassign_success_msg')
+            ]);
         }
         else{
-            return redirect()->route('securepanel.roles.index')->with('role_error_msg', trans('label.permission_found_error_msg'));
+            return response()->json([
+                'status' => 'failed',
+                'msg' => trans('label.permission_unassign_error_msg')
+            ]);
+        }
+    }
+    /*
+     * Assign Permission
+     */
+    public function assign_permission(Request $request){
+        $user_request = $request->all();
+        if(isset($user_request['per_controller']) && !empty($user_request['per_controller']) && isset($user_request['per_method']) && !empty($user_request['per_method']) && isset($user_request['role_id']) && !empty($user_request['role_id'])){
+            $permission_name = $user_request['per_method'];
+            $controller_name = $user_request['per_controller'];
+            $role_id = $user_request['role_id'];
+
+            // check permission is exist or not
+            $permission_data = $this->check_permission($permission_name,$controller_name);
+            $role_data = Role::findOrFail($role_id);
+            $role_data->givePermissionTo($permission_data);
+
+            return response()->json([
+                'status' => 'success',
+                'msg' => trans('label.permission_assign_success_msg')
+            ]);
+        }
+        else{
+            return response()->json([
+                'status' => 'failed',
+                'msg' => trans('label.permission_assign_error_msg')
+            ]);
+        }
+    }
+    /*
+     * check permission
+     */
+    public function check_permission($permission_name,$controller_name){
+        $permission_updated_name = $controller_name . '_' . $permission_name;
+        $permission = Permission::where('name','=',$permission_updated_name)->where('controller_name','=',$controller_name)->first();
+
+        if(!empty($permission)){
+            return $permission;
+        }
+        else{
+            $permission = Permission::create(['name' => $permission_updated_name, 'controller_name' => $controller_name]);
+            return $permission;
         }
     }
 }

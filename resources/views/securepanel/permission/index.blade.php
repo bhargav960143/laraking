@@ -6,10 +6,6 @@
 
 @extends('layouts.backend.app')
 
-@section('pagecss')
-    <link href="{{ url('laraking/backend/css/datatables.bundle.css') }}" rel="stylesheet" type="text/css"/>
-@stop
-
 @section('content')
     <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
         <!-- begin::Quick Sidebar -->
@@ -27,7 +23,8 @@
                         </h3>
                         <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                             <li class="m-nav__item m-nav__item--home">
-                                <a href="{{ url('securepanel/dashboard') }}" title="{{trans('label.dashboard_title')}}" class="m-nav__link m-nav__link--icon">
+                                <a href="{{ url('securepanel/dashboard') }}" title="{{trans('label.dashboard_title')}}"
+                                   class="m-nav__link m-nav__link--icon">
                                     <i class="m-nav__link-icon la la-home"></i>
                                 </a>
                             </li>
@@ -35,7 +32,8 @@
                                 -
                             </li>
                             <li class="m-nav__item">
-                                <a href="{{ url('securepanel/roles') }}" title="{{trans('label.roles_title')}}" class="m-nav__link">
+                                <a href="{{ url('securepanel/roles') }}" title="{{trans('label.roles_title')}}"
+                                   class="m-nav__link">
                                     <span class="m-nav__link-text">
                                         {{trans('label.roles_title')}}
                                     </span>
@@ -45,7 +43,8 @@
                                 -
                             </li>
                             <li class="m-nav__item">
-                                <a href="{{ url('securepanel/roles/permission/' . $role->id) }}" title="{{trans('label.permission_title')}}" class="m-nav__link">
+                                <a href="{{ url('securepanel/roles/permission/' . $role->id) }}"
+                                   title="{{trans('label.permission_title')}}" class="m-nav__link">
                                     <span class="m-nav__link-text">
                                         {{trans('label.permission_title')}}
                                     </span>
@@ -63,18 +62,19 @@
                         <div class="m-portlet__head-caption">
                             <div class="m-portlet__head-title">
                                 <h3 class="m-portlet__head-text">
-                                   {{ucfirst($role->name)}} {{trans('label.permission_title_listing')}}
+                                    {{ucfirst($role->name)}} {{trans('label.permission_title_listing')}}
                                 </h3>
                             </div>
                         </div>
                         <div class="m-portlet__head-tools">
                             <ul class="m-portlet__nav">
                                 <li class="m-portlet__nav-item">
-                                    <a href="{{ url('securepanel/roles/permission/assign/' . $role->id) }}" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air">
+                                    <a href="{{ url('securepanel/roles') }}"
+                                       class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air">
                                         <span>
-                                            <i class="la la-plus"></i>
+                                            <i class="la la-minus-circle"></i>
                                             <span>
-                                                {{trans('label.permission_assign_title')}}
+                                                {{trans('label.back_label')}}
                                             </span>
                                         </span>
                                     </a>
@@ -96,47 +96,82 @@
                                     <li>{{ session('permission_error_msg') }}</li>
                                 </ul>
                             </div>
-                    @endif
-                    <!--BEGIN: Datatable -->
-                        <table class="table table-striped- table-bordered table-hover table-checkable" id="table_permission_list">
-                            <thead>
-                            <tr>
-                                <th>
-                                    {{trans('label.no_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.role_name_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.guard_name_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.controller_name_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.permission_name_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.created_date_field_title')}}
-                                </th>
-                                <th>
-                                    {{trans('label.action_field_title')}}
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th id="permission_no"></th>
-                                <th id="role_name"></th>
-                                <th id="guard_name"></th>
-                                <th id="controller_name"></th>
-                                <th id="permission_name"></th>
-                                <th id="created_date"></th>
-                                <th id="action"></th>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <!--END: Datatable -->
+                        @endif
+                        <div id="ajax_success_msg" style="display: none;">
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                                <strong>
+                                    Well done!
+                                </strong>
+                                <span id="success_msg_ajax">You successfully read this important alert message.</span>
+                            </div>
+                        </div>
+                        <div id="ajax_failed_msg" style="display: none;">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                                <strong>
+                                    Oh snap!
+                                </strong>
+                                <span id="failed_msg_ajax">Change a few things up and try submitting again.</span>
+                            </div>
+                        </div>
+                        <!--BEGIN: Table -->
+                        <div class="m-widget11">
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table">
+                                    <!--begin::Thead-->
+                                    <thead>
+                                    <tr>
+                                        <td class="m-widget11__label">
+                                            Assign/Unassign
+                                        </td>
+                                        <td class="m-widget11__app">
+                                            Controller Name
+                                        </td>
+                                        <td class="m-widget11__sales">
+                                            Method Name
+                                        </td>
+                                    </tr>
+                                    </thead>
+                                    <!--end::Thead-->
+                                    <!--begin::Tbody-->
+                                    <tbody>
+                                    @if(count($controller_method_list) > 0)
+                                        @foreach($controller_method_list as $keyPermission => $valuePermission)
+                                        <tr>
+                                            <td>
+                                                <div class="m-checkbox-list">
+                                                    <label class="m-checkbox m-checkbox--solid m-checkbox--state-brand">
+                                                        <input type="checkbox" onclick="permission_call_back(this)" data-perMethod="{{$valuePermission['method_name']}}" data-perController="{{$valuePermission['controller_name']}}" name="permission_name" @if($valuePermission['is_assign']) {{'checked'}} @endif>
+                                                        <span></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{$valuePermission['controller_name']}}
+                                            </td>
+                                            <td>
+                                                {{$valuePermission['method_name']}}
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="3">
+                                                {{trans('label.permission_not_found_title')}}
+                                            </td>
+                                        </tr>
+                                    @endif
+
+                                    </tbody>
+                                    <!--end::Tbody-->
+                                </table>
+                                <!--end::Table-->
+                                <input type="hidden" name="role_id" id="role_id" value="{{$role->id}}">
+                            </div>
+                        </div>
+                        <!--END: Table -->
                     </div>
                 </div>
                 <!-- END EXAMPLE TABLE PORTLET-->
@@ -147,7 +182,5 @@
 @endsection
 
 @section('pagescript')
-    <script>var role_id = @php echo $role->id; @endphp</script>
-    <script src="{{ url('laraking/backend/js/datatables.bundle.js') }}" type="text/javascript"></script>
-    <script src="{{ url('laraking/backend/js/pages/datatable/permission_data_table.js') }}" type="text/javascript"></script>
+    <script src="{{ url('laraking/backend/js/pages/permission_custom.js') }}" type="text/javascript"></script>
 @stop

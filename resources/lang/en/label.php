@@ -77,6 +77,11 @@ return [
     'permission_description'                                 => 'Permission ' . config('app.name'),
     'permission_title_listing'                               => 'Permission Listing',
     'permission_assign_title'                                => 'Assign permission',
+    'permission_not_found_title'                             => 'No permission found',
+    'permission_unassign_success_msg'                        => 'Permission removed successfully.',
+    'permission_unassign_error_msg'                          => 'Something wen\'t wrong please try again',
+    'permission_assign_success_msg'                          => 'Permission assigned successfully.',
+    'permission_assign_error_msg'                            => 'Something wen\'t wrong please try again',
 
     /*
      * Dashboard

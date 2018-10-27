@@ -41,8 +41,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'securepanel', 'as' => 'secu
      */
     Route::post('roles/get_table','Backend\RolesController@get_table');
     Route::get('roles/permission/{id}','Backend\RolesController@get_role_permission');
-    Route::post('roles/get_permission_table','Backend\RolesController@get_permission_table');
-    Route::post('roles/remove_permission','Backend\RolesController@remove_permission');
+    Route::post('roles/unassign_permission','Backend\RolesController@unassign_permission');
+    Route::post('roles/assign_permission','Backend\RolesController@assign_permission');
     Route::resource('roles', 'Backend\RolesController');
 
     Route::get('tracker', 'Backend\TrackerController@index');
