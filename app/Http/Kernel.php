@@ -20,6 +20,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
         \PragmaRX\Tracker\Vendor\Laravel\Middlewares\Tracker::class,
+        \App\Http\Middleware\AuthPermission::class,
     ];
 
     /**
@@ -37,6 +38,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \PragmaRX\Tracker\Vendor\Laravel\Middlewares\Tracker::class,
+            \App\Http\Middleware\AuthPermission::class,
         ],
 
         'api' => [
@@ -61,5 +63,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'authpermission' => \App\Http\Middleware\AuthPermission::class,
     ];
 }

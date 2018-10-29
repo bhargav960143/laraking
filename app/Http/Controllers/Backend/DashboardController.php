@@ -7,6 +7,7 @@ use Tracker;
 use DB;
 use App\User;
 use PragmaRX\Tracker\Vendor\Laravel\Models\Log as TrackerLog;
+use Illuminate\Support\Facades\Gate;
 
 class DashboardController extends Controller
 {
@@ -27,6 +28,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $permission_name = "DashboardController_index";
+        //dd(Gate::allows($permission_name));
         $meta_title = trans('label.dashboard_title');
         $meta_keyword = trans('label.dashboard_keyword');
         $meta_description = trans('label.dashboard_description');

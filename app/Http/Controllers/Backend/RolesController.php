@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreRolesRequest;
 use App\Http\Requests\Admin\UpdateRolesRequest;
@@ -370,6 +369,8 @@ class RolesController extends Controller
             $role_data->revokePermissionTo($permission_data->name);
             $permission_data->removeRole($role_data);
 
+            $role_data->fresh();
+
             return response()->json([
                 'status' => 'success',
                 'msg' => trans('label.permission_unassign_success_msg')
@@ -396,6 +397,8 @@ class RolesController extends Controller
             $permission_data = $this->check_permission($permission_name,$controller_name);
             $role_data = Role::findOrFail($role_id);
             $role_data->givePermissionTo($permission_data);
+
+            $role_data->fresh();
 
             return response()->json([
                 'status' => 'success',

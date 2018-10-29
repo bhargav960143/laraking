@@ -15,9 +15,3 @@ For Windows
 5. Run command after any change in config file.
 - php artisan cache:clear
 - php artisan config:cache
-
-
-Package Installed
-- Laravel Debugbar composer require barryvdh/laravel-debugbar --dev
--
-100px
