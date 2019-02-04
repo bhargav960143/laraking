@@ -7,7 +7,7 @@
     <a href="#contributor" alt="Contributor of laraking">
         <img src="https://img.shields.io/badge/Contributor-1-green.svg" /></a>
     <a href="https://circleci.com/gh/badges/shields/tree/master">
-        <img src="https://img.shields.io/teamcity/codebetter/bt428.svg"
+        <img src="https://img.shields.io/badge/build-passing-brightgreen.svg"
             alt="Build status of laraking"></a>
     <a href="#license" alt="License of laraking">
             <img src="https://img.shields.io/badge/License-GPL%20V2-green.svg" /></a>
@@ -81,6 +81,11 @@ Instruction
     ```
     php artisan migrate --seed
     ```
+    
+6. Run this query after migration complete
+    ```
+    ALTER TABLE `tracker_sessions` CHANGE `uuid` `uuid` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+    ```    
 
 6. Run laravel in the local server.
     ```
